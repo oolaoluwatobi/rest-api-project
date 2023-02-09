@@ -15,15 +15,27 @@ const UserSchema = new Schema({
   },
   email: {
     type: String,
+    unique: true,
     required: true,
-    index: {
-      unique: true
+    validate: {
+      validator: function(value) {
+        return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value);
+      },
+      message: "Invalid email format"
     }
   },
   password: {
     type: String,
     required: true,
-  },
+    minlength: 8,
+    maxlength: 128,
+    validate: {
+      validator: function(value) {
+        return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(value);
+      },
+      message: "Password must be at least 8 characters long and contain at least one letter and one number"
+    },
+  }
 
 })
 
