@@ -6,7 +6,7 @@ const { MongoClient } = require("mongodb");
 // mongoose.set('strictQuery', true);
 
 let dbConnection
-let uri = 'mongodb+srv://oolaoluwatobi:123ola@cluster0.g928usv.mongodb.net/?retryWrites=true&w=majority'
+let uri = 'mongodb+srv://oolaoluwatobi:123ola@cluster0.g928usv.mongodb.net/'
 // 'mongodb://0.0.0.0:27017/usersDB'
 
 module.exports = {
